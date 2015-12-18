@@ -60,48 +60,12 @@ for movie in movies:
 
 #create the movie movie correlations
 corr = dict()
-corr['ratings'] = dict()
-corr['norm'] = dict()
-
-def cal_corr(movie1, movie2, movies):
-    tot1r = 0.
-	tot2r = 0.
-	tot1n = 0.
-	tot2n = 0.
-	count = 0.
-	for user in movies[movie1]['norm']:
-		if user in movies[movie2]['norm']:
-			tot1r += movies[movie1]['ratings'][user]
-			tot2r += movies[movie2]['ratings'][user]
-			tot1n += movies[movie1]['norm'][user]
-			tot2n += movies[movie2]['norm'][user]
-	if count == 0:
-		return (0, 0)
-	mean1r = tot1r/count
-	mean2r = tot2r/count
-	mean1n = tot1n/count
-	mean2n = tot2n/count
-	tot1r = 0.
-	tot2r = 0.
-	tot1n = 0.
-	tot2n = 0.
-	for user in movies[movie1]['ratings']:
-		if user in movies[movie2]['ratings']:
-			tot1r += pow((movies[movie1]['ratings'][user] - mean1r),2)
-			tot2r += pow((movies[movie2]['ratings'][user] - mean2r),2)
-			tot1n += pow((movies[movie1]['norm'][user] - mean1n),2)
-			tot2n += pow((movies[movie2]['norm'][user] - mean2n),2)
-	count -= 1
-	if count == 0:
-		return (0, 0)
-    std1r = pow((tot1r/count), 0.5)
-    std2r = pow((tot2r/count), 0.5)
-    std1n = pow((tot1n/count), 0.5)
-    std2n = pow((tot2n/count), 0.5)
-	print std1r, std2r, std1n, std2n
 
 
 '''
+
+
+
 def cal_corr(user1, user2, user_ratings):
     tot1 = 0.
     tot2 = 0.
